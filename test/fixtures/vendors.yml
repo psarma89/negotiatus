@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+vendor_one:
   company: "ABC Co."
-  address: "123 Merry Way"
+  address: "11 Brodway New York, NY"
   longitude: 1.5
   latitude: 1.5

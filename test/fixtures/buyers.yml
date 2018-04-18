@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+buyer_one:
   name: "John Doe"
-  address: "11 Broadway"
+  address: "1920 McGraw Avenue Bronx, NY"
   longitude: 2.5
   latitude: 2.5
 
-two:
+buyer_two:
   name: "Jane Doe"
   address: "19 West 55th Street"
-  longitude: 2.5
-  latitude: 2.5
+  longitude: 3.5
+  latitude: 3.5

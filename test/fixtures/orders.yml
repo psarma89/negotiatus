@@ -3,8 +3,8 @@
 one:
   order_number: 1
   tracking_number: 1
-  vendor_id: valid.id
-  buyer_id: 1
+  vendor: vendor_one
+  buyer: buyer_one
   status: "Normal"
   shipped_date: 2018-04-17 18:32:22
   delivered_date: 2018-04-17 18:32:22
@@ -12,8 +12,8 @@ one:
 two:
   order_number: 2
   tracking_number: 2
-  vendor_id: valid.id
-  buyer_id: 1
+  vendor: vendor_one
+  buyer: buyer_two
   status: "Normal"
   shipped_date: 2018-04-17 18:32:22
   delivered_date: 2018-04-17 18:32:22
