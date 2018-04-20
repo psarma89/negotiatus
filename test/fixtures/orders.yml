@@ -1,19 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  order_number: 1
-  tracking_number: 1
+order_one:
+  order_number: 111111
+  tracking_number: 222222
   vendor: vendor_one
   buyer: buyer_one
-  status: "Normal"
-  shipped_date: 2018-04-17 18:32:22
+  status:
+  address: 34 West 34th Street New York, NY
+  longitude: 3.5
+  latitude: 3.5
+  shipped_date: 2018-04-10 12:52:04
   delivered_date: 2018-04-17 18:32:22
 
-two:
-  order_number: 2
-  tracking_number: 2
+order_two:
+  order_number: 111112
+  tracking_number: 222221
   vendor: vendor_one
   buyer: buyer_two
-  status: "Normal"
-  shipped_date: 2018-04-17 18:32:22
-  delivered_date: 2018-04-17 18:32:22
+  address: 34 West 34th Street New York, NY
+  longitude: 4.5
+  latitude: 4.5    
+  status:
+  shipped_date: 2018-04-13 09:32:27
+  delivered_date: 2018-04-16 11:13:15

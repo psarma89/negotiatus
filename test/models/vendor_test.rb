@@ -6,6 +6,10 @@ class VendorTest < ActiveSupport::TestCase
     @vendor = vendors(:vendor_one)
   end
 
+  def teardown
+    Rails.cache.clear
+  end
+
   test 'vendor valid' do
     assert @vendor.valid?
   end

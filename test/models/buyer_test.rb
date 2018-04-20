@@ -5,6 +5,10 @@ class BuyerTest < ActiveSupport::TestCase
     @buyer = buyers(:buyer_one)
   end
 
+  def teardown
+    Rails.cache.clear
+  end  
+
   test 'buyer valid' do
     assert @buyer.valid?
   end

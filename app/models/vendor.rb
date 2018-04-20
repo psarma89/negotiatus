@@ -12,7 +12,7 @@ class Vendor < ApplicationRecord
 
   validates :company, uniqueness: true
 
-  before_validation :geocode, :reverse_geocode
-  after_validation :geocode, :reverse_geocode, if: :address_changed?
+  before_validation :geocode, :reverse_geocode, if: :address_changed?
+  # after_validation :geocode, :reverse_geocode, if: :address_changed?
 
 end

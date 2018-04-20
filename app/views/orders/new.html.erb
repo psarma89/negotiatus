@@ -1,0 +1,64 @@
+<%= link_to 'View Orders', orders_path %>
+
+<h1>New Order</h1>
+
+<div class="form">
+  <%= form_for @order do |f| %>
+
+    <script type="text/javascript" charset="utf-8">
+      function google_autocomplete()
+      {
+        $("#order_address").geocomplete()
+      };
+    </script>
+
+    <% if @order.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+        <ul>
+        <% @order.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class= "form-group">
+      <%= f.label :order_number %>
+      <%= f.text_field :order_number, placeholder: "Enter 6 digit number" %>
+    </div><br>
+
+    <div class= "form-group">
+      <%= f.label :tracking_number %>
+      <%= f.text_field :tracking_number, placeholder: "Enter 6 digit number" %>
+    </div><br>
+
+    <div class= "form-group">
+      <%= f.label :address %>
+      <%= f.text_field :address, size: 50, placeholder: "Enter a location", onkeyup: "google_autocomplete()" %>
+    </div><br>
+
+    <!-- <div class= "form-group">
+      <%= f.label :vendor_name %>
+      <%= f.text_field :vendor, list: "vendor_autocomplete" %>
+      <datalist id="vendor_autocomplete">
+        <% Vendor.all.each do |vendor| %>
+          <option value="<%= vendor.company %>">
+        <% end %>
+      </datalist>
+    </div> -->
+
+    <div class= "form-group">
+      <%= f.label :vendor_name %>
+      <%= f.collection_select :vendor_id, Vendor.all, :id, :company %>
+    </div><br>
+
+    <div class= "form-group">
+      <%= f.label :buyer_name %>
+      <%= f.collection_select :buyer_id, Buyer.all, :id, :name %>
+    </div><br>
+
+    <%= f.submit "Create Order" %>
+  <% end %>
+</div>
