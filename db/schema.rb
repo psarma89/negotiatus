@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180420001714) do
+ActiveRecord::Schema.define(version: 20180420133647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20180420001714) do
     t.float "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["latitude", "longitude"], name: "index_buyers_on_latitude_and_longitude"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20180420001714) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.index ["latitude", "longitude"], name: "index_orders_on_latitude_and_longitude"
   end
 
   create_table "vendors", force: :cascade do |t|
@@ -46,6 +48,7 @@ ActiveRecord::Schema.define(version: 20180420001714) do
     t.float "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["latitude", "longitude"], name: "index_vendors_on_latitude_and_longitude"
   end
 
 end

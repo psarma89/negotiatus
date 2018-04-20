@@ -35,6 +35,10 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'geocoder'
 gem 'figaro'
+gem 'json'
+# Using to kill open connectiosn to DB in rake task
+gem 'pgreset'
+# Using for google maps auto complete functionality
 gem 'jquery-rails'
 
 group :development, :test do
@@ -45,6 +49,8 @@ group :development, :test do
   gem 'selenium-webdriver'
   # For seeding database
   gem 'faker'
+  gem 'httparty'
+  gem 'nokogiri'
 end
 
 group :development do

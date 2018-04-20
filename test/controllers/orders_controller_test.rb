@@ -32,7 +32,17 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create order" do
     assert_difference('Order.count') do
-      post orders_url, params: { order: { order_number: rand(100000,999999), tracking_number: rand(100000,999999), vendor: Vendor.first , buyer: Buyer.first, shipped_date: DateTime.now, delivered_date: DateTime.now + 3 } }
+      post orders_url, params: { order:
+        {
+          order_number: rand(100000..999999),
+          tracking_number: rand(100000..999999),
+          vendor_id: Vendor.all.ids.sample,
+          buyer_id: Buyer.all.ids.sample,
+          address: doc.at_css("p").inner_text,
+          shipped_date: DateTime.now,
+          delivered_date: DateTime.now.next_day(rand(1..15))
+        }
+      }
     end
 
     assert_redirected_to articles_path

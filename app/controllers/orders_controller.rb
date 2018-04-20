@@ -16,7 +16,11 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    if params[:filter] && params[:filter] != ""
+      @orders = Order.filter_by_status(params[:filter]).order("shipped_date")
+    else
+      @orders = Order.where("status != 'Delivered'")
+    end
   end
 
   private
