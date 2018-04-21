@@ -5,7 +5,7 @@ order_one:
   tracking_number: 222222
   vendor: vendor_one
   buyer: buyer_one
-  status:
+  status: Delivered
   address: 34 West 34th Street New York, NY
   longitude: 3.5
   latitude: 3.5
@@ -19,7 +19,7 @@ order_two:
   buyer: buyer_two
   address: 34 West 34th Street New York, NY
   longitude: 4.5
-  latitude: 4.5    
-  status:
+  latitude: 4.5
+  status: Delivered
   shipped_date: 2018-04-13 09:32:27
   delivered_date: 2018-04-16 11:13:15

@@ -61,15 +61,12 @@ class OrderTest < ActiveSupport::TestCase
     assert_not_nil @order.errors[:status], 'no validation error for status present'
   end
 
-  test 'order has default status of Pending when not shipped' do
+  test 'order has default status of Not Shipped when not shipped' do
     order = orders(:order_two)
     order.shipped_date = nil
     order.delivered_date = nil
     order.save
-    assert_equal "Pending", order.status, 'order status does not default to pending'
-  end
-
-  test 'order has status of Normal, Not Normal or Very Late when shipped and not delivered' do
+    assert_equal "Not Shipped", order.status, 'order status defaults to Not Shipped'
   end
 
   test 'order number must be six characters long' do

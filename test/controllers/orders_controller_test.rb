@@ -11,6 +11,11 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   test "Orders index should show stuff" do
     get orders_url
     assert_select "table", true
+    assert_select "table" do
+      assert_select "th", 5
+    end
+    assert_select 'form input[name=filter]', true
+    assert_select 'div.info', true
   end
 
   test "should get orders new page" do
@@ -38,14 +43,14 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
           tracking_number: rand(100000..999999),
           vendor_id: Vendor.all.ids.sample,
           buyer_id: Buyer.all.ids.sample,
-          address: doc.at_css("p").inner_text,
+          address: "103 Garris Rd Downingtown, PA 19335-3115",
           shipped_date: DateTime.now,
           delivered_date: DateTime.now.next_day(rand(1..15))
         }
       }
     end
 
-    assert_redirected_to articles_path
+    assert_redirected_to orders_path
   end
 
 end
