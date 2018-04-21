@@ -13,7 +13,6 @@ class Order < ApplicationRecord
   validates :order_number, :tracking_number, uniqueness: true, length: { is: 6 }
 
   before_validation :set_status, :geocode, :reverse_geocode, if: :address_changed?
-  before_save :set_status
 
   def self.filter_by_status(filter)
     where("status = ?", filter)
