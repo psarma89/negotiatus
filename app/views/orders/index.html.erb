@@ -5,10 +5,10 @@
 <br>
 
 <div class="info">
-  <h3 style="color: grey; display:inline"> Not Shipped: <%=  Order.where(status: "Not Shipped").count%> </h3> &nbsp
-  <h3 style="color: green; display:inline"> Normal: <%= Order.where(status: "Normal").count %></h3> &nbsp
-  <h3 style="color: purple; display:inline"> Not Normal: <%= Order.where(status: "Not Normal").count %></h3> &nbsp
-  <h3 style="color: red; display:inline"> Very Late: <%= Order.where(status: "Very Late").count %></h3> &nbsp
+  <h3 style="color: grey; display:inline"> Not Shipped: <%=  @orders.where(status: "Not Shipped").count%> </h3> &nbsp
+  <h3 style="color: green; display:inline"> Normal: <%= @orders.where(status: "Normal").count %></h3> &nbsp
+  <h3 style="color: purple; display:inline"> Not Normal: <%= @orders.where(status: "Not Normal").count %></h3> &nbsp
+  <h3 style="color: red; display:inline"> Very Late: <%= @orders.where(status: "Very Late").count %></h3> &nbsp
 </div><br>
 
 <div class="filter">

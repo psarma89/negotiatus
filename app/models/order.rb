@@ -32,13 +32,17 @@ class Order < ApplicationRecord
     # Find all delivered orders for the Vendor on this shipped but not delivered order
     nearby_deliveries = self.vendor.nearby_deliveries(self)
     all_deliveries = self.vendor.all_deliveries(self)
+    national_deliveries = self.vendor.national_deliveries(self)
 
     if nearby_deliveries.any?
       # Calculate if delivery is "Normal", "Not Normal", or "Very Late" using nearby deliviries for vendor
       self.calculate_status(nearby_deliveries)
-    else
+    elsif all_deliveries.any?
       # Calculate if delivery is "Normal", "Not Normal", or "Very Late" using all deliviries for vendor
       self.calculate_status(all_deliveries)
+    else
+      # Calculate if delivery is "Normal", "Not Normal", or "Very Late" using all deliviries nationally
+      self.calculate_status(national_deliveries)
     end
 
 
@@ -52,9 +56,9 @@ class Order < ApplicationRecord
     three_days_seconds = (24*3*3600)
 
     # Status is normal if elapsed time is less than average delivery time
-    if elapsed_time < avg_delivery_time
+    if elapsed_time <= avg_delivery_time
       self.status = 'Normal'
-    elsif elapsed_time < avg_delivery_time + three_days_seconds
+    elsif elapsed_time > avg_delivery_time && elapsed_time <= avg_delivery_time + three_days_seconds
       self.status = "Not Normal"
     else
       # Very late for delivery after 3 days from average

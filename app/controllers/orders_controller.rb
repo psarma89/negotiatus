@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
 
   def new
+    @vendors = Vendor.all
+    @buyers = Buyer.all
     @order = Order.new
   end
 

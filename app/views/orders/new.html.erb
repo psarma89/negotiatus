@@ -51,12 +51,12 @@
 
     <div class= "form-group">
       <%= f.label :vendor_name %>
-      <%= f.collection_select :vendor_id, Vendor.all, :id, :company %>
+      <%= f.collection_select :vendor_id, @vendors, :id, :company %>
     </div><br>
 
     <div class= "form-group">
       <%= f.label :buyer_name %>
-      <%= f.collection_select :buyer_id, Buyer.all, :id, :name %>
+      <%= f.collection_select :buyer_id, @buyers, :id, :name %>
     </div><br>
 
     <%= f.submit "Create Order" %>
