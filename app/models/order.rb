@@ -49,7 +49,7 @@ class Order < ApplicationRecord
   end
 
   def calculate_status(deliveries)
-    avg_delivery_time = deliveries.reduce(0){|sum, delivery| sum + delivery[:time]}
+    avg_delivery_time = deliveries.reduce(0){|sum, delivery| sum + delivery[:time]} / deliveries.length
     elapsed_time = Time.now - self.shipped_date
 
     #threshold for being Not Normal, three days delayed from average delivery time
